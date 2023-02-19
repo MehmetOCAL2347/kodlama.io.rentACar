@@ -11,6 +11,6 @@ import lombok.Setter;
 @AllArgsConstructor
 public class GetByIdBrandResponse {
 
-
-
+    private int id;
+    private String name;
 }

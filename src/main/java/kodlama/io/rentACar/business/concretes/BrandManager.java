@@ -2,6 +2,7 @@ package kodlama.io.rentACar.business.concretes;
 
 import kodlama.io.rentACar.business.abstracts.BrandServise;
 import kodlama.io.rentACar.business.requests.CreateBrandRequest;
+import kodlama.io.rentACar.business.requests.UpdateBrandRequest;
 import kodlama.io.rentACar.business.responses.GetAllBrandsResponse;
 import kodlama.io.rentACar.core.utilities.mappers.ModelMapperService;
 import kodlama.io.rentACar.dataAccess.abstracts.BrandRepository;
@@ -57,5 +58,15 @@ public class BrandManager implements BrandServise {
 
 
         return brandsResponses;
+    }
+
+    @Override
+    public void update(UpdateBrandRequest updateBrandRequest) {
+
+    }
+
+    @Override
+    public void delete(int id) {
+
     }
 }
