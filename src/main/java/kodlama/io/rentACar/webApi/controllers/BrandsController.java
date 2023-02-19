@@ -25,7 +25,7 @@ public class BrandsController { // Api isimleri çoğul verilir
         return brandServise.getAll();
     }
 
-    @PostMapping()
+    @PostMapping("/createNewCar")
     @ResponseStatus(code = HttpStatus.CREATED)
     public void add(@RequestBody CreateBrandRequest createBrandRequest){
         this.brandServise.add(createBrandRequest);

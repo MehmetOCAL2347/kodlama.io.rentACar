@@ -32,6 +32,7 @@ public class BrandManager implements BrandServise {
 
         // Neyi neye çevircemizi soyluyoruz, cretateBrandRequest objemizi Brand'e çeviriyor
         Brand brand = this.modelMapperService.forRequests().map(createBrandRequest, Brand.class);
+        this.brandRepository.save(brand);
 
     }
 
