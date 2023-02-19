@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service  // Bir business nesnesi olduğunu anlatmak için
 @AllArgsConstructor
@@ -38,7 +39,7 @@ public class BrandManager implements BrandServise {
     public List<GetAllBrandsResponse> getAll() {
 
         List<Brand> brands = brandRepository.findAll();
-        List<GetAllBrandsResponse> brandsResponses = new ArrayList<>();
+        /*List<GetAllBrandsResponse> brandsResponses = new ArrayList<>();
 
         for (Brand brand: brands) {
             GetAllBrandsResponse responseItem = new GetAllBrandsResponse();
@@ -46,6 +47,13 @@ public class BrandManager implements BrandServise {
             responseItem.setName(brand.getName());
             brandsResponses.add(responseItem);
         }
+        */
+        List<GetAllBrandsResponse> brandsResponses = brands
+                .stream()
+                .map(brand -> this.modelMapperService.forResponse()
+                        .map(brand, GetAllBrandsResponse.class))
+                .collect(Collectors.toList());
+
 
         return brandsResponses;
     }
