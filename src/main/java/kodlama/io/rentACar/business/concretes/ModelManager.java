@@ -1,6 +1,7 @@
 package kodlama.io.rentACar.business.concretes;
 
 import kodlama.io.rentACar.business.abstracts.ModelService;
+import kodlama.io.rentACar.business.requests.CreateModelRequest;
 import kodlama.io.rentACar.business.responses.GetAllBrandsResponse;
 import kodlama.io.rentACar.business.responses.GetAllModelsResponse;
 import kodlama.io.rentACar.core.utilities.mappers.ModelMapperService;
@@ -34,4 +35,9 @@ public class ModelManager implements ModelService {
         return modelsResponses;
     }
 
+    @Override
+    public void add(CreateModelRequest createModelRequest) {
+        Model model = this.modelMapperService.forRequests().map(createModelRequest, Model.class);
+        this.modelRepository.save(model);
+    }
 }
