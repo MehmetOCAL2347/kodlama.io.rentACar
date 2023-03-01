@@ -21,6 +21,7 @@ public class Model { // Araçlara ait modelleri kullanacağız
     private String name;
 
     @ManyToOne
+    @JoinColumn(name = "brand_id")
     private Brand brand;
 
 }
