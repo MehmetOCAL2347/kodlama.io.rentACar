@@ -1,17 +1,16 @@
 package kodlama.io.rentACar.entities.concretes;
+
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.util.List;
-
-//@Data // @Getter + @Setter = @Data
-@Table(name = "brands")
-@Getter
-@Setter
-@AllArgsConstructor // Constructor oluturacağı anlamına gelir
-@NoArgsConstructor // Parametresiz constructor oluşturulması için de gerekli
+@Table(name = "models")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
-public class Brand {
+public class Model { // Araçlara ait modelleri kullanacağız
 
     @Id // Bu değişken bir primary keydir anlamına gelir
     @GeneratedValue(strategy = GenerationType.IDENTITY) //bu değeri 1 er 1 er artır otomatik olarak anlamına gelir
@@ -21,7 +20,7 @@ public class Brand {
     @Column(name = "name")
     private String name;
 
-    @OneToMany
-    List<Model> models;
+    @ManyToOne
+    private Brand brand;
 
 }
