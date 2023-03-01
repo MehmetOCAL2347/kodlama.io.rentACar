@@ -1,5 +1,6 @@
 package kodlama.io.rentACar.webApi.controllers;
 
+import jakarta.validation.Valid;
 import kodlama.io.rentACar.business.abstracts.BrandServise;
 import kodlama.io.rentACar.business.requests.CreateBrandRequest;
 import kodlama.io.rentACar.business.requests.UpdateBrandRequest;
@@ -30,7 +31,7 @@ public class BrandsController { // Api isimleri çoğul verilir
 
     @PostMapping()
     @ResponseStatus(code = HttpStatus.CREATED)
-    public void add(@RequestBody CreateBrandRequest createBrandRequest){
+    public void add(@RequestBody @Valid CreateBrandRequest createBrandRequest){
         this.brandServise.add(createBrandRequest);
     }
 
